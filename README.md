@@ -1,5 +1,5 @@
 # ns
-ns stands for nimble status. It is written for dwm, and supports using X root window name (think of `xsetroot -name`) and `stdout` using the `-s` command line argument. 
+`ns` stands for nimble status. It is written for dwm, and supports using X root window name (think of `xsetroot -name`) and `stdout` using the `-s` command line argument. 
 Supports showing `cmus` info (will not show if nothing is playing), uptime, load average, ram usage, how long the last status took to generate, and the date. Can be configured using config.h.
 
 Compile using `make`, install using `sudo make install`, and remove using `sudo make clean`. By default will install to `/usr/local/bin/`.
