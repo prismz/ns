@@ -1,6 +1,6 @@
 # ns
 ns stands for nimble status. It is written for dwm, and supports using X root window name (think of `xsetroot -name`) and `stdout` using the `-s` command line argument. 
-Supports showing cmus info, uptime, load average, ram usage, how long the last status took to generate, and the date. Can be configured using config.h.
+Supports showing `cmus` info (will not show if nothing is playing), uptime, load average, ram usage, how long the last status took to generate, and the date. Can be configured using config.h.
 
 Compile using `make`, install using `sudo make install`, and remove using `sudo make clean`. By default will install to `/usr/local/bin/`.
 
@@ -10,3 +10,5 @@ Sample output:
 
 To edit which elements show up in the status, edit `status_components` in `config.h`. Each component will appear in the order specified.
 You can also customize the separator (by default is ` | `)
+
+The time is formatted using `strftime`. You can specify a custom format in `config.h`.
