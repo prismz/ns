@@ -9,7 +9,7 @@
  */
 #define DETR_SEP(i, complen) (i != complen - 1) ? ITEM_SEP : NULL
 
-#define VERSION "1.0"
+#define VERSION "1.1"
 
 void xsetroot(Display* dpy, char* string);
 void add_to_status(char* status, char* info, char* unit, char* sep);
