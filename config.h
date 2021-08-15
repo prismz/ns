@@ -19,6 +19,6 @@ typedef enum {
 } component;
 
 static component status_components[] = { 
-    cmus_info, uptime_info, loadavg_info, mem_info, statgen_info, datetime_info };
+    cmus_info, uptime_info, loadavg_info, mem_info, datetime_info };
 
 #endif
