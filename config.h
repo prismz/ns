@@ -6,7 +6,7 @@
  * (this is for Python, but should be the same for C.) 
  */
 #define TIME_FORMAT "%A %B %d %I:%M:%S %p"
-
+#define ENABLE_XORG  /* comment out if you don't have Xlib headers or won't be using the X root window name. */
 #define ITEM_SEP " | "  /* separator between each item */
 
 typedef enum {

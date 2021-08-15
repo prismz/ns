@@ -79,7 +79,6 @@ get_cmus_status(void)
 
         free(fmt_dur);
         free(fmt_pos);
-
     } else {
         cmus_status = smalloc(sizeof(char) * 13);
         strcpy(cmus_status, "not playing");

@@ -12,6 +12,8 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+
+#ifdef ENABLE_XORG
 #include <X11/Xlib.h>
 
 void
@@ -22,6 +24,7 @@ xsetroot(Display* dpy, char* string)
     
     XFlush(dpy);
 }
+#endif
 
 void
 add_to_status(char* status, char* info, char* unit, char* sep)
@@ -52,12 +55,14 @@ main(int argc, char** argv)
         s = 1;
 
     double duration = 0.0;  /* time taken to generate and set status */
+
+#ifdef ENABLE_XORG
     Display* dpy;
     if (!s) 
         dpy = XOpenDisplay(NULL);
     if (!dpy && !s)
         die("error: could not open display.");
-
+#endif
     char* status = smalloc(sizeof(char) * 4096);
     strcpy(status, "");
     while (1) {
@@ -104,10 +109,14 @@ main(int argc, char** argv)
             }
         }
 
+#ifdef ENABLE_XORG
         if (s)
             printf("%s\n", status);
         else
             xsetroot(dpy, status);
+#else
+        printf("%s\n", status);
+#endif
         strcpy(status, "");
         t = clock() - t;
         duration = ((double)t) / CLOCKS_PER_SEC;
@@ -116,5 +125,7 @@ main(int argc, char** argv)
     }
 
     free(status);
+#ifdef ENABLE_XORG
     XCloseDisplay(dpy);
+#endif
 }
