@@ -4,8 +4,7 @@ Supports showing cmus info (will not show if nothing is playing), uptime,
 amount of packages installed using portage, free disk space, load average, ram usage, 
 how long the last status took to generate, and the date. Can be configured using config.h.
 
-To compile without X11, disable the option in config.h and remove "-lX11"
-from the makefile.
+To compile without X11, disable the option in config.h and remove "-lX11" from the makefile.
 Compile using make, install using sudo make install, and remove using sudo make clean. By default will install to /usr/local/bin/.
 
 Sample output:
