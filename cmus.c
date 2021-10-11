@@ -44,10 +44,10 @@ get_cmus_status(void)
                     strcpy(filen, "");
                 } else if (c != '\n') {
                     filen[c_i] = c;
-                    filen[c_i + 1] = '\0';
                     c_i++;
                 }
             }
+            filen[c_i] = '\0';
             file_set = 1;
         } else if (strstw("duration", cb)) {
             char* rem = split_attr(cb);
@@ -76,9 +76,9 @@ get_cmus_status(void)
         char* fmt_dur = strfsec(duration);
         char* fmt_pos = strfsec(position);
 
-        size_t cmus_status_sz = strlen(fmt_dur) + strlen(fmt_pos) + strlen(filen) + 10;
+        size_t cmus_status_sz = strlen(fmt_dur) + strlen(fmt_pos) + strlen(filen) + 20;
         cmus_status = smalloc(cmus_status_sz);
-        snprintf(cmus_status, cmus_status_sz, "%s %s / %s %s", (playing) ? "pause" : "play", fmt_pos, fmt_dur, filen);
+        snprintf(cmus_status, cmus_status_sz, "%s %s / %s - %s", (playing) ? "pause" : "play", fmt_pos, fmt_dur, filen);
 
         free(fmt_dur);
         free(fmt_pos);
