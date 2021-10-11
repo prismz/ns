@@ -1,5 +1,6 @@
 #ifndef NS_H
 #define NS_H
+
 #include "config.h"
 #include <X11/Xlib.h>
 
@@ -9,7 +10,7 @@
  */
 #define DETR_SEP(i, complen) (i != complen - 1) ? ITEM_SEP : NULL
 
-#define VERSION "1.1"
+#define VERSION "1.2g"
 
 void xsetroot(Display* dpy, char* string);
 void add_to_status(char* status, char* info, char* unit, char* sep);

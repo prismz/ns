@@ -26,7 +26,7 @@ srealloc(void* ptr, size_t size)
     return m;
 }
 
-int
+char*
 get_mem(void)
 {
     int mtotal = 0, mfree = 0, mbuffers = 0, mcache = 0, msreclaimable = 0;
@@ -73,5 +73,8 @@ get_mem(void)
     fclose(fp);
     free(cb);
     free(cb_cpy);
-    return used;
+    
+    char* str_used = smalloc(sizeof(char) * 25);
+    snprintf(str_used, 25, "%d", used);
+    return str_used;
 }

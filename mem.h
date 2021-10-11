@@ -5,6 +5,6 @@
 
 void* smalloc(size_t size);
 void* srealloc(void* ptr, size_t size);
-int get_mem(void);
+char* get_mem(void);
 
 #endif

@@ -6,7 +6,6 @@
  * (this is for Python, but should be the same for C.) 
  */
 #define TIME_FORMAT "%A %B %d %I:%M:%S %p"
-#define ENABLE_XORG  /* comment out if you don't have Xlib headers or won't be using the X root window name. */
 #define ITEM_SEP " | "  /* separator between each item */
 
 typedef enum {
@@ -20,7 +19,7 @@ typedef enum {
     portage_installed /* amount of packages installed with gentoo's package manager */
 } component;
 
-static component status_components[] = { 
+static const component status_components[] = { 
     cmus_info, portage_installed, disk_free, uptime_info, loadavg_info, mem_info, datetime_info };
 
 #endif
