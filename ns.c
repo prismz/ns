@@ -7,6 +7,7 @@
 #include "portage.h"
 #include "disk.h"
 #include "uptime.h"
+#include "keymap.h"
 #include "config.h"
 
 #include <stdio.h>
@@ -115,6 +116,11 @@ main(int argc, char** argv)
                 char* df = get_free_disk_space();
                 add_to_status(status, df, "G free", sep);
                 free(df);
+
+            } else if (status_components[i] == current_keymap) {
+                char* km = get_keymap();
+                add_to_status(status, km, NULL, sep);
+                free(km);
             }
         }
 
