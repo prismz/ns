@@ -15,10 +15,12 @@ typedef enum {
     loadavg_info,     /* load average */
     mem_info,         /* mem usage in MiB */
     statgen_info,     /* time taken to generate and set status */
-    datetime_info     /* date and time according to TIME_FORMAT */
+    datetime_info,    /* date and time according to TIME_FORMAT */
+    disk_free,        /* free space on main disk */
+    portage_installed /* amount of packages installed with gentoo's package manager */
 } component;
 
 static component status_components[] = { 
-    cmus_info, uptime_info, loadavg_info, mem_info, datetime_info };
+    cmus_info, portage_installed, disk_free, uptime_info, loadavg_info, mem_info, datetime_info };
 
 #endif
