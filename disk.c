@@ -1,6 +1,7 @@
 #include "disk.h"
 #include "mem.h"
 #include "util.h"
+#include "config.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,14 +12,13 @@ char*
 get_free_disk_space(void)
 {
     struct statvfs sv;
-    int rc = statvfs("/", &sv);
-
+    int rc = statvfs(DISK_PATH, &sv);
     if (rc != 0)
         return NULL;
 
     size_t bfree = (size_t)sv.f_bavail;
 
-    /* lots of rounding for precise number */
+    /* lots of rounding and typecasts for precise number */
     double gb = ((double)(bfree * sv.f_bsize) / (double)1024);
     gb = gb / (double)1024;
     gb = round(gb / (double)1024);
@@ -28,4 +28,3 @@ get_free_disk_space(void)
     
     return buff;
 }
-

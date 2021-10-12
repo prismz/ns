@@ -50,21 +50,20 @@ get_mem(void)
         char* b;
         int val = (int)strtol(ptr, &b, 10);
         
-        if (strstw("MemTotal:", cb)) {
+        if (strstw("MemTotal:", cb))
             mtotal = val;
-        } else if (strstw("MemFree:", cb)) {
+        else if (strstw("MemFree:", cb))
             mfree = val;
-        } else if (strstw("Buffers:", cb)) {
+        else if (strstw("Buffers:", cb))
             mbuffers = val;
-        } else if (strstw("Cached:", cb)) {
+        else if (strstw("Cached:", cb))
             mcache = val;
-        } else if (strstw("SwapTotal:", cb)) {
+        else if (strstw("SwapTotal:", cb))
             stotal = val;
-        } else if (strstw("SwapFree:", cb)) {
+        else if (strstw("SwapFree:", cb))
             sfree = val;
-        } else if (strstw("SReclaimable:", cb)) {
+        else if (strstw("SReclaimable:", cb))
             msreclaimable = val;
-        }
     }
 
     int used = mtotal + stotal - mfree - sfree - mbuffers - mcache - msreclaimable;
