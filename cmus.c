@@ -64,7 +64,7 @@ get_cmus_status(void)
             free(rem);
             position_set = 1;
         } else if (strstw("status", cb)) {
-            if (!strstr(cb, "playing"))
+            if (strstr(cb, "playing"))
                 playing = 1;
         }
     }
@@ -78,7 +78,7 @@ get_cmus_status(void)
 
         size_t cmus_status_sz = strlen(fmt_dur) + strlen(fmt_pos) + strlen(filen) + 20;
         cmus_status = smalloc(cmus_status_sz);
-        snprintf(cmus_status, cmus_status_sz, "%s %s / %s - %s", (playing) ? "pause" : "play", fmt_pos, fmt_dur, filen);
+        snprintf(cmus_status, cmus_status_sz, "%s %s / %s - %s", (playing) ? "play" : "pause", fmt_pos, fmt_dur, filen);
 
         free(fmt_dur);
         free(fmt_pos);
